@@ -1,0 +1,34 @@
+/*
+Given a string, find the length of the longest substring without repeating characters. 
+For example, the longest substring without repeating letters for "abcabcbb" is "abc", which the length is 3. For "bbbbb" the longest substring is "b", with the length of 1.
+*/
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        if(s.size()==1){
+            return 1;
+        }
+        string::size_type ix;
+        string::size_type jx;
+        string::size_type currentmax=0;
+        string::size_type Max=0;
+		string substring;
+      for(ix=0;ix!=s.size();++ix){
+            jx=ix+1;
+            while(jx<s.size()){
+				substring=s.substr(ix,jx-ix);
+               if( substring.find(s[jx])==string::npos){
+                   jx=jx+1;
+				   currentmax=jx-ix;
+				   Max=max(currentmax,Max);// this Max will always store the last Max in "ixth" starter
+               }
+               else{
+                   break;
+               }
+               
+            }// end while
+			
+      }//end for
+       return Max;  
+    }
+};
