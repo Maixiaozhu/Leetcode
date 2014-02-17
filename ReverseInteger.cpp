@@ -15,13 +15,13 @@ Throw an exception? Good, but what if throwing an exception is not an option? Yo
 */
 class Solution {
 public:
-    int reverse(int x) {
-        int y=abs(x)/10;
-        int sum=abs(x)%10;
+    int reverse(int x) {// for case x=1234
+        int y=abs(x)/10;//initialize y=123 waiting to get "3"
+        int sum=abs(x)%10;//initialize sum=4
         while(y){
             int a=y%10;
-            y=y/10;
-            sum=sum*10+a;
+            y=y/10;//move back "<-" for next time to get a
+            sum=sum*10+a;// sum=4*10+(1234/10)%10
         }
         if(x<0){
             return -1*sum;
