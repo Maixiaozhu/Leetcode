@@ -26,8 +26,8 @@ public:
         while(l1 && l2)
         {
             ListNode *node = new ListNode(l1->val + l2->val + flag);
-            flag = node->val / 10;
-            node->val %= 10;
+            flag = node->val / 10;//flag is for next node, if this time node->val>10 next time flag should be 1
+            node->val %= 10;// node only keep the single digit
             
             if (head == NULL)
                 head = node;
