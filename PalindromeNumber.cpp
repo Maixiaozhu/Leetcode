@@ -24,8 +24,8 @@ public:
                 a=y%10;// a wil be update next time a start as the second last bit of x
                 y=y/10;
                 sum=sum*10+a;
-            }
-            if(sum==x){
+            }// sum is the reverse of x
+            if(sum==x){// reverse x see whether it is same as x , that should be palindrome number
                 return 1;
             } 
             else{
