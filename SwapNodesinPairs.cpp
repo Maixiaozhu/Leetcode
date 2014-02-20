@@ -34,10 +34,10 @@ public:
                 l1->next=temp;
                 break;
             }
-            else{
+            else{//  make node: l1->next connect to  l1->next->next->next then insert the original l1->next->next node between l1 and l1->next
             ListNode *temp=l1->next->next;
-            l1->next->next=l1->next->next->next;
-            temp->next=l1->next;
+            l1->next->next=l1->next->next->next;// in this time l1's next node is l1->next
+            temp->next=l1->next;// insert temp in l1 and l1->next
             l1->next=temp;
             }
             l1=l1->next->next;
