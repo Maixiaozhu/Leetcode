@@ -38,19 +38,18 @@ public:
         if(k==(length+1)){
             return head;
         }
-        else if(k>(length+1)){
-            k=k%(length+1);//update k
-            if(k==0){
+        else if(k>(length+1)){//update k
+            k=k%(length+1);
+            if(k==0){ // k can be divided by (length+1)
                 return head;
             }
             else{// this time new k is always smaller than length
                 while(l2->next!=NULL){
                     l2=l2->next;
-                    
-                    if(d>=k){
+                    if(d>=k){ // in here d is last d in case only have two node 
                         p1=p1->next;
                     }
-                    d++;
+                    d++; 
                 }// p1->next is new ending
                 ListNode *temp=p1->next;
                 ListNode *newhead=temp;
