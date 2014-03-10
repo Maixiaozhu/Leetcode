@@ -9,7 +9,8 @@ class Solution {
 public:
     vector<string> result;
     map<char,string> keyMap;
-    void setMap(){
+    void setMap(){// I hate this part cause visit the content of a string by its index s[], I get a char instead of string
+                 //So I have to make the type of this map to be<char,string>, but s.substr gets  you a string type result
         //keyMap.insert(map<string,string>::value_type("1"," "));
         //传递给insert的实参 OR make_pair
         keyMap.insert(make_pair('1'," "));
@@ -29,6 +30,8 @@ public:
             //path.clear();
             return;
         }
+        //map.find return a pair-type iterator, member"first" return the key, member"second" return the value
+        //using map.find could be better because it will not insert non-exist element 
         string currentdigits=keyMap.find(digstr[currentdep])->second;// if str="23" str[0] is 2 M.find(2) is pair iterator ,seconde meber
                                                                   //is "abc"
                                                                   //by currentdep to visit each digtis
